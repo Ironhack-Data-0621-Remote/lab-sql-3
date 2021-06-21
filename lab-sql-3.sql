@@ -19,7 +19,7 @@ order by length desc
 limit 10;
 
 -- 5. How many days has been the company operating (check DATEDIFF() function)?
-select DATEDIFF(MIN(rental_date), max(last_update))
+select DATEDIFF(MIN(rental_date), now())
 as number_of_days
 from rental;
 

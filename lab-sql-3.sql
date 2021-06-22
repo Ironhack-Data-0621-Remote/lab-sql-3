@@ -39,3 +39,13 @@
 
 -- As the 'rental_date' is too old I inputed a fixed date that gives results, but if we want to use the current date the last line should be replaced by:
 -- WHERE date_format(convert(substring_index(rental_date, ' ', 1), date), '%Y%m') = date_format(date_add(substring_index(now(), ' ', 1), interval -1 month), '%Y%m');
+
+-- Abhi's choice with manual input
+-- select count(*)
+-- from rental
+-- where date(rental_date) between date('2006-01-15') and date('2006-02-14');
+
+-- Kevin's choice with subqueries
+-- select count(rental_id)
+-- from rental
+-- where rental_date >= (select max(rental_date) from rental) - interval 30 day
